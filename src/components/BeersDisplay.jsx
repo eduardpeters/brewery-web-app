@@ -1,13 +1,20 @@
+import { useEffect, useState } from 'react';
 import BeersGrid from './BeersGrid';
 import '../styles/BeersDisplay.css'; 
 
+import json from '../../beers.json';
+
 function BeersDisplay() {
-    const elements = Array.from(Array(50).keys());
+    const [beers, setBeers] = useState([]);
+
+    useEffect(() => {
+        setBeers(json);
+    }, []);
 
     return (
         <div className='beers_display__container'>
             <p>Search Box</p>
-            <BeersGrid beers={elements} />
+            <BeersGrid beers={beers} />
         </div>
     );
 }
