@@ -1,12 +1,14 @@
+import BeersGrid from './BeersGrid';
+import '../styles/BeersDisplay.css'; 
+
 function BeersDisplay() {
+    const elements = Array.from(Array(50).keys());
+
     return (
-        <>
-            <p>View Switcher on Corner</p>
+        <div className='beers_display__container'>
             <p>Search Box</p>
-            <p>
-                List of beers!
-            </p>
-        </>
+            <BeersGrid beers={elements} />
+        </div>
     );
 }
 

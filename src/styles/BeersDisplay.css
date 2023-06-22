@@ -1,0 +1,6 @@
+.beers_display__container {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
