@@ -3,6 +3,7 @@ import BeersDisplay from './BeersDisplay';
 import '../styles/App.css';
 
 import json from '../../beers.json';
+import { SearchIcon } from './Icons';
 
 function App() {
     const [beers, setBeers] = useState([]);
@@ -15,8 +16,8 @@ function App() {
         <div className='app__container'>
             <div className='app__topbar'>
                 <h1 className='app__title'>Brewdog Brewery</h1>
-                <div>
-                    Icons!
+                <div className='icons__container'>
+                    <SearchIcon />
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection</h2>
