@@ -1,7 +1,15 @@
+import { useEffect, useState } from 'react';
 import BeersDisplay from './BeersDisplay';
 import '../styles/App.css';
 
+import json from '../../beers.json';
+
 function App() {
+    const [beers, setBeers] = useState([]);
+
+    useEffect(() => {
+        setBeers(json);
+    }, []);
 
     return (
         <div className='app__container'>
@@ -12,7 +20,7 @@ function App() {
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection</h2>
-            <BeersDisplay />
+            <BeersDisplay beers={beers} />
         </div>
     );
 }
