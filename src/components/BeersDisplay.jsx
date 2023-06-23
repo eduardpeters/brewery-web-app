@@ -13,7 +13,6 @@ function BeersDisplay() {
 
     return (
         <div className='beers_display__container'>
-            <p>Search Box</p>
             <BeersGrid beers={beers} />
         </div>
     );

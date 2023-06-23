@@ -6,17 +6,23 @@
 }
 
 .app__title {
+    text-align: center;
+}
+
+.app__topbar {
+    align-items: center;
     background-color: #FFF;
-    height: 40px;
-    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 80px;
+    justify-content: center;
     padding: 5px;
     position: fixed;
-    text-align: center;
     top: 0;
     width: 100%;
 }
 
 .app__subtitle {
-    margin-top: 50px;
+    margin-top: 80px;
     padding: 5px;
 }

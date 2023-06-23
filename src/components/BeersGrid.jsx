@@ -4,7 +4,7 @@ function BeersGrid( { beers }) {
 
     return (
         <div className='beer_grid__container'>
-            {beers.map(beer => <BeerCard beer={beer}/>)}
+            {beers.map(beer => <BeerCard key={beer.id} beer={beer}/>)}
         </div>
     );
 }
