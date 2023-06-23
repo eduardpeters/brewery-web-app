@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import BeersDisplay from './BeersDisplay';
-import Button from './Button';
-import { SearchIcon } from './Icons';
+import BeersSearch from './BeersSearch';
 import '../styles/App.css';
 
 import json from '../../beers.json';
@@ -18,12 +17,7 @@ function App() {
             <div className='app__topbar'>
                 <h1 className='app__title'>Brewdog Brewery</h1>
                 <div className='buttons__container'>
-                    <Button
-                        onClick={() => console.log('Search!')}
-                        title='Search button'
-                    >
-                        <SearchIcon />
-                    </Button>
+                    <BeersSearch /> 
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection</h2>

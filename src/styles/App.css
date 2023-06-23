@@ -14,7 +14,7 @@
     background-color: #FFF;
     display: flex;
     flex-flow: column nowrap;
-    height: 80px;
+    height: fit-content;
     justify-content: center;
     padding: 5px;
     position: fixed;
