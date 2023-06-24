@@ -3,7 +3,11 @@ import '../styles/BeerCard.css';
 function BeerCard({ beer }) {
 
     return (
-        <div className='beer_card__container'>
+        <button
+            className='beer_card__container'
+            onClick={() => console.log(`Profile: ${beer.name}`)}
+            title={`Show ${beer.name}`}
+        >
             <img
                 className='beer_image'
                 src={beer.image_url}
@@ -11,7 +15,7 @@ function BeerCard({ beer }) {
             />
             <h3 className='beer__name'>{beer.name}</h3>
             <p className='beer__tagline'>{beer.tagline}</p>
-        </div>
+        </button>
     );
 }
 

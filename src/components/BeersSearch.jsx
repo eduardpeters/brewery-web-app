@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from './Button';
 import { SearchIcon } from './Icons';
 import '../styles/BeersSearch.css';
 
@@ -12,21 +11,21 @@ function BeersSearch() {
 
     return (
         <div className='search__container'>
-            <Button
+            <button
                 onClick={handleIconClick}
                 title='Show search box'
             >
                 <SearchIcon />
-            </Button>
+            </button>
             {showInput &&
                 <>
                     <input type='text'></input>
-                    <Button
+                    <button
                         onClick={() => console.log('Do search!')}
                         title='Search beers'
                     >
                         Cheers!
-                    </Button>
+                    </button>
                 </>
             }
         </div>
