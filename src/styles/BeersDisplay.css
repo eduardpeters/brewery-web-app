@@ -6,12 +6,23 @@
 }
 
 .profile__dialog {
-    left: 25%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+    left: 10%;
+    max-height: 80%;
     overflow: auto;
     overscroll-behavior: contain;
     position: fixed;
-    top: 25%;
-    width: 50%;
+    top: 10%;
+    width: 80%;
+}
+
+@media screen and (min-width: 767px) {
+    .profile__dialog {
+        max-height: 50%;
+        top: 25%;
+    }
 }
 
 .profile__dialog::backdrop {
