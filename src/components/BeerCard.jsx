@@ -1,11 +1,11 @@
 import '../styles/BeerCard.css';
 
-function BeerCard({ beer }) {
+function BeerCard({ beer, setSelection }) {
 
     return (
         <button
             className='beer_card__container'
-            onClick={() => console.log(`Profile: ${beer.name}`)}
+            onClick={() => setSelection(beer)}
             title={`Show ${beer.name}`}
         >
             <img

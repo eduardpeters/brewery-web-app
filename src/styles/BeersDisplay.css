@@ -4,3 +4,16 @@
     flex-flow: column nowrap;
     justify-content: center;
 }
+
+.profile__dialog {
+    left: 25%;
+    overflow: auto;
+    overscroll-behavior: contain;
+    position: fixed;
+    top: 25%;
+    width: 50%;
+}
+
+.profile__dialog::backdrop {
+    background-color: #dbe8e788;
+}

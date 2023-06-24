@@ -20,7 +20,7 @@ function App() {
                     <BeersSearch /> 
                 </div>
             </div>
-            <h2 className='app__subtitle'>Our beer selection</h2>
+            <h2 className='app__subtitle'>Our beer selection &#127866;</h2>
             <BeersDisplay beers={beers} />
         </div>
     );
