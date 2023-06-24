@@ -1,10 +1,16 @@
-function BeerCard( { beer }) {
+import '../styles/BeerCard.css';
+
+function BeerCard({ beer }) {
 
     return (
         <div className='beer_card__container'>
-            <p>{beer.name}</p>
-            <img src={beer.image_url} alt={`A ${beer.name} beer`} height={100} width={100} />
-            <p>{beer.tagline}</p>
+            <img
+                className='beer_image'
+                src={beer.image_url}
+                alt={`A ${beer.name} beer`}
+            />
+            <h3 className='beer__name'>{beer.name}</h3>
+            <p className='beer__tagline'>{beer.tagline}</p>
         </div>
     );
 }
