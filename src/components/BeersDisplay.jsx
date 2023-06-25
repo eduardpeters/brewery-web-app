@@ -5,7 +5,7 @@ import '../styles/BeersDisplay.css';
 
 const DISPLAY_PAGE_SIZE = 10;
 
-function BeersDisplay({ beers }) {
+function BeersDisplay({ beers, getNextBeers }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageBeers, setPageBeers] = useState([]);
     const [selection, setSelection] = useState({});
@@ -22,12 +22,17 @@ function BeersDisplay({ beers }) {
         profileDialogRef.current.showModal();
     }, [selection]);
 
-    function handlePageChange(requestedPage) {
+    async function handlePageChange(requestedPage) {
         if (requestedPage < 1)
             return;
-        if (requestedPage > currentPage && beers.length % 10 != 0)
-            return;
-        console.log("Will move to page: ", requestedPage);
+        if (requestedPage > currentPage) {
+            if (beers.length % DISPLAY_PAGE_SIZE != 0)
+                return;
+            if ((DISPLAY_PAGE_SIZE * (requestedPage - 1)) >= beers.length) {
+                await getNextBeers(requestedPage);
+            }
+        }
+        setCurrentPage(requestedPage);
     }
 
     return (

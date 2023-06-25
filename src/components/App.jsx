@@ -19,6 +19,15 @@ function App() {
         getBeers();
     }, []);
 
+    async function getNextBeers(page) {
+        const nextBeers = await beersAPI.getBeers({ page });
+        if (nextBeers.error) {
+            console.error(beers.error);
+        } else {
+            setBeers([...beers, ...nextBeers]);
+        }
+    }
+
     return (
         <div className='app__container'>
             <div className='app__topbar'>
@@ -28,7 +37,7 @@ function App() {
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection &#127866;</h2>
-            <BeersDisplay beers={beers} />
+            <BeersDisplay beers={beers} getNextBeers={getNextBeers} />
         </div>
     );
 }
