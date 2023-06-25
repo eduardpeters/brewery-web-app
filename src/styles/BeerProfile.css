@@ -7,11 +7,19 @@
     align-items: center;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.pairings__list {
+    margin: 1rem;
 }
 
 .profile__attribute {
     margin: 0.5rem;
+}
+
+.profile__attribute-short {
+    text-align: center;
 }
 
 .profile__container {
@@ -30,10 +38,13 @@
 }
 
 .profile__close {
-    background-color: #2EC4B6;
+    align-items: center;
+    background-color: #F94144;
     border-radius: 5px;
     color: #FFF;
     cursor: pointer;
+    display: flex;
+    margin: 5px;
     padding: 5px;
 }
 
@@ -53,6 +64,18 @@
     font-size: 2rem;
     text-align: center;
     margin: 0.5rem 0;
+}
+
+.profile__pairings-btn {
+    align-items: center;
+    background-color: #2EC4B6;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.9rem;
+    margin: 5px;
+    padding: 5px;
 }
 
 .profile__tagline {
