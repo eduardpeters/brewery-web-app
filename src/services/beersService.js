@@ -1,5 +1,5 @@
 const API_BASE_URL = 'https://api.punkapi.com/v2/beers';
-const PAGE_SIZE = 30;
+const PAGE_SIZE = 10;
 
 async function getBeers(url = API_BASE_URL, page = 1) {
     let requestUrl;

@@ -5,6 +5,31 @@
     justify-content: center;
 }
 
+.beers_display__pages {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.page__button {
+    background-color: #2EC4B6;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin: 5px;
+    min-width: 8rem;
+    padding: 5px;
+    text-align: center;
+}
+
+.page__button:hover {
+    opacity: 0.8;
+}
+
 .profile__dialog {
     border: none;
     border-radius: 10px;
