@@ -5,17 +5,21 @@ import '../styles/BeersDisplay.css';
 
 const DISPLAY_PAGE_SIZE = 10;
 
-function BeersDisplay({ beers, getNextBeers }) {
+function BeersDisplay({ beers, getNextBeers, query }) {
     const [currentPage, setCurrentPage] = useState(1);
     const [pageBeers, setPageBeers] = useState([]);
     const [selection, setSelection] = useState({});
     const profileDialogRef = useRef(null);
 
     useEffect(() => {
+        setCurrentPage(1);
+    },[query]);
+
+    useEffect(() => {
         const slice = beers.slice(DISPLAY_PAGE_SIZE * (currentPage - 1), DISPLAY_PAGE_SIZE * currentPage);
         setPageBeers(slice);
         window.scrollTo(0, 0);
-    }, [currentPage, beers])
+    }, [currentPage, beers]);
 
     useEffect(() => {
         if (Object.keys(selection).length == 0 || !profileDialogRef.current)

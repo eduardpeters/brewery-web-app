@@ -22,7 +22,6 @@ function BeersSearch({ setQuery }) {
             byName: searchByName,
             searchString: searchInput,
         }
-        console.log("Now searching!", query);
         setQuery(query);
     }
 

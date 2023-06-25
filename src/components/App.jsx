@@ -52,7 +52,7 @@ function App() {
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection &#127866;</h2>
-            <BeersDisplay beers={beers} getNextBeers={getNextBeers} />
+            <BeersDisplay beers={beers} getNextBeers={getNextBeers} query={query} />
         </div>
     );
 }
