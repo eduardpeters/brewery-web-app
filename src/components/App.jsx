@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
 import BeersDisplay from './BeersDisplay';
 import BeersSearch from './BeersSearch';
+import beersAPI from '../services/beersService';
 import '../styles/App.css';
-
-import json from '../../beers.json';
 
 function App() {
     const [beers, setBeers] = useState([]);
 
     useEffect(() => {
-        setBeers(json);
+        async function getBeers() {
+            const beers = await beersAPI.getBeers();
+            if (beers.error) {
+                console.error(beers.error);
+            } else {
+                setBeers(beers);
+            }
+        }
+        getBeers();
     }, []);
 
     return (
