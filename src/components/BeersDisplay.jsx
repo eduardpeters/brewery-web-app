@@ -14,6 +14,7 @@ function BeersDisplay({ beers, getNextBeers }) {
     useEffect(() => {
         const slice = beers.slice(DISPLAY_PAGE_SIZE * (currentPage - 1), DISPLAY_PAGE_SIZE * currentPage);
         setPageBeers(slice);
+        window.scrollTo(0, 0);
     }, [currentPage, beers])
 
     useEffect(() => {
@@ -26,7 +27,7 @@ function BeersDisplay({ beers, getNextBeers }) {
         if (requestedPage < 1)
             return;
         if (requestedPage > currentPage) {
-            if (beers.length % DISPLAY_PAGE_SIZE != 0)
+            if (beers.length % DISPLAY_PAGE_SIZE !== 0)
                 return;
             if ((DISPLAY_PAGE_SIZE * (requestedPage - 1)) >= beers.length) {
                 await getNextBeers(requestedPage);
@@ -48,20 +49,26 @@ function BeersDisplay({ beers, getNextBeers }) {
                 <BeersGrid beers={pageBeers} setSelection={setSelection} />
             </div>
             <div className='beers_display__pages'>
-                <button
-                    className='page__button'
-                    onClick={() => handlePageChange(currentPage - 1)}
-                    title='Load previous page'
-                >
-                    Previous page
-                </button>
-                <button
-                   className='page__button'
-                   onClick={() => handlePageChange(currentPage + 1)}
-                   title='Load previous page' 
-                >
-                    Next page
-                </button>
+                {
+                    currentPage > 1 &&
+                    <button
+                        className='page__button'
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        title='Load previous page'
+                    >
+                        Previous page
+                    </button>
+                }
+                {
+                    beers.length % 10 === 0 &&
+                    <button
+                        className='page__button'
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        title='Load previous page'
+                    >
+                        Next page
+                    </button>
+                }
             </div>
         </>
     );
