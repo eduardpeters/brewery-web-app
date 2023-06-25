@@ -12,7 +12,7 @@ function App() {
         async function getFirstPage() {
             const response = await getBeers();
             if (response.error) {
-                console.error(beers.error);
+                console.error(response.error);
             } else {
                 setBeers(response);
             }
@@ -52,7 +52,13 @@ function App() {
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection &#127866;</h2>
-            <BeersDisplay beers={beers} getNextBeers={getNextBeers} query={query} />
+            {
+                beers.length !== 0
+                    ?
+                    <BeersDisplay beers={beers} getNextBeers={getNextBeers} query={query} />
+                    :
+                    <h2 className='app__subtitle'>Oops... no matching beers found...</h2>
+            }
         </div>
     );
 }
