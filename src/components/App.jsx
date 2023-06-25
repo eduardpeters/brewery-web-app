@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import BeersDisplay from './BeersDisplay';
 import BeersSearch from './BeersSearch';
 import beersAPI from '../services/beersService';
@@ -7,6 +7,20 @@ import '../styles/App.css';
 function App() {
     const [beers, setBeers] = useState([]);
     const [query, setQuery] = useState({ byName: true, searchString: '' })
+
+    const getBeers = useCallback(async (page = 1) => {
+        let response;
+        if (query.searchString.length !== 0) {
+            if (query.byName) {
+                response = await beersAPI.getByName(query.searchString, page);
+            } else {
+                response = await beersAPI.getByFood(query.searchString, page);
+            }
+        } else {
+            response = await beersAPI.getBeers({ page });
+        }
+        return response;
+    }, [query]);
 
     useEffect(() => {
         async function getFirstPage() {
@@ -18,21 +32,7 @@ function App() {
             }
         }
         getFirstPage();
-    }, [query]);
-
-    async function getBeers(page = 1) {
-        let beers;
-        if (query.searchString.length !== 0) {
-            if (query.byName) {
-                beers = await beersAPI.getByName(query.searchString, page);
-            } else {
-                beers = await beersAPI.getByFood(query.searchString, page);
-            }
-        } else {
-            beers = await beersAPI.getBeers({ page });
-        }
-        return beers;
-    }
+    }, [query, getBeers]);
 
     async function getNextBeers(page) {
         const nextBeers = await getBeers(page);
@@ -52,10 +52,10 @@ function App() {
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection &#127866;</h2>
-            {query.searchString.length !== 0 && 
+            {query.searchString.length !== 0 &&
                 <button
                     className='app__clear'
-                    onClick={() => setQuery({...query, searchString: ''})}
+                    onClick={() => setQuery({ ...query, searchString: '' })}
                     title='Clear search results'
                 >
                     Clear search
