@@ -13,9 +13,10 @@ function BeerProfile({ beer, setSelection, dialogElement }) {
 
     return (
         <main className='profile__container'>
-            <h1 className='profile__name'>{beer.name}</h1>
+            <h1 className='profile__name' autoFocus tabIndex='0'>{beer.name}</h1>
             <div className='profile__default'>
                 <img
+                    autoFocus
                     className='profile_image'
                     src={beer.image_url}
                     alt={`A ${beer.name} beer`}

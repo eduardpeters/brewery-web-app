@@ -6,7 +6,7 @@
 .default__texts {
     align-items: center;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: flex-start;
 }
 
@@ -85,6 +85,7 @@
 
 @media screen and (min-width: 767px) {
     .default__texts {
+        min-height: 300px;
         width: 50%;
     }
 
@@ -92,4 +93,14 @@
         flex-flow: row nowrap;
         justify-content: space-evenly;
     }
+}
+
+.profile__close:focus,
+.profile__pairings-btn:focus {
+    border: 2px solid #3a86ff;
+}
+
+.profile__close:hover,
+.profile__pairings-btn:hover {
+    opacity: 0.8;
 }
