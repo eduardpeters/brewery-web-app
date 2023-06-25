@@ -23,6 +23,7 @@ function BeersSearch({ setQuery }) {
             searchString: searchInput,
         }
         setQuery(query);
+        setShowInput(false);
     }
 
     return (
