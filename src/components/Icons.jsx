@@ -1,7 +1,7 @@
 export function SearchIcon() {
     return (
         <svg
-            fill='#000000'
+            fill='#FFFFFF'
             width='24px'
             height='24px'
             viewBox='0 0 0.72 0.72'

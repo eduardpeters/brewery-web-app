@@ -1,4 +1,80 @@
-.search__container {
+.option__button {
+    align-items: center;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
     display: flex;
-    flex-flow: column;
+    font-size: 0.9rem;
+    margin: 5px;
+    padding: 5px;
+}
+
+.option__button-toggled {
+    background-color: #FF9F1C;
+}
+
+.option__button-not-toggled {
+    background-color: #888888;
+    color: #D6D6D6;
+    opacity: 0.25;
+}
+
+.search__button {
+    align-items: center;
+    background-color: #2EC4B6;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.9rem;
+    margin: 5px;
+    padding: 5px;
+}
+
+.search__container {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 5px;
+}
+
+.search__form {
+    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.search__icon {
+    align-items: center;
+    background-color: #2EC4B6;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.9rem;
+    margin: 5px;
+    padding: 5px;
+}
+
+.search__icon:hover {
+    opacity: 0.8;
+}
+
+.search__icon-text {
+    margin: 0 5px;
+}
+
+.search__input {
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    height: 1.25rem;
+    margin: 5px;
+    text-align: center;
+}
+
+.search__options {
+    display: flex;
+    flex-flow: row nowrap;
 }
