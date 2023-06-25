@@ -47,6 +47,7 @@ function BeersSearch({ setQuery }) {
                         id='search_input'
                         type='text'
                         onChange={event => setSearchInput(event.target.value)}
+                        onKeyUp={event => event.key === 'Enter' && handleSearch(event)}
                     >
                     </input>
                     <div className='search__options'>
