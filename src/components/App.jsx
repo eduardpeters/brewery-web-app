@@ -52,6 +52,15 @@ function App() {
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection &#127866;</h2>
+            {query.searchString.length !== 0 && 
+                <button
+                    className='app__clear'
+                    onClick={() => setQuery({...query, searchString: ''})}
+                    title='Clear search results'
+                >
+                    Clear search
+                </button>
+            }
             {
                 beers.length !== 0
                     ?
