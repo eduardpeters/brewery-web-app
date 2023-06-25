@@ -6,21 +6,36 @@ import '../styles/App.css';
 
 function App() {
     const [beers, setBeers] = useState([]);
+    const [query, setQuery] = useState({ byName: true, searchString: '' })
 
     useEffect(() => {
-        async function getBeers() {
-            const beers = await beersAPI.getBeers();
-            if (beers.error) {
+        async function getFirstPage() {
+            const response = await getBeers();
+            if (response.error) {
                 console.error(beers.error);
             } else {
-                setBeers(beers);
+                setBeers(response);
             }
         }
-        getBeers();
-    }, []);
+        getFirstPage();
+    }, [query]);
+
+    async function getBeers(page = 1) {
+        let beers;
+        if (query.searchString.length !== 0) {
+            if (query.byName) {
+                beers = await beersAPI.getByName(query.searchString, page);
+            } else {
+                beers = await beersAPI.getByFood(query.searchString, page);
+            }
+        } else {
+            beers = await beersAPI.getBeers({ page });
+        }
+        return beers;
+    }
 
     async function getNextBeers(page) {
-        const nextBeers = await beersAPI.getBeers({ page });
+        const nextBeers = await getBeers(page);
         if (nextBeers.error) {
             console.error(beers.error);
         } else {
@@ -33,7 +48,7 @@ function App() {
             <div className='app__topbar'>
                 <h1 className='app__title'>Brewdog Brewery</h1>
                 <div className='buttons__container'>
-                    <BeersSearch /> 
+                    <BeersSearch setQuery={setQuery} />
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection &#127866;</h2>

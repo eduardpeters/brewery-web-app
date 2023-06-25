@@ -24,4 +24,20 @@ async function getBeers({ url = API_BASE_URL, page = 1 } = {}) {
     }
 }
 
-export default { getBeers };
+async function getByName(searchString, page = 1) {
+    const queryString = toSnakeCase(searchString);
+    const url = `${API_BASE_URL}/?beer_name=${queryString}`;
+    return await getBeers({ url, page });
+}
+
+async function getByFood(searchString, page = 1) {
+    const queryString = toSnakeCase(searchString);
+    const url = `${API_BASE_URL}/?food=${queryString}`;
+    return await getBeers({ url, page });
+}
+
+function toSnakeCase(string) {
+    return string.trim().replace(' ', '_');
+}
+
+export default { getBeers, getByName, getByFood };
