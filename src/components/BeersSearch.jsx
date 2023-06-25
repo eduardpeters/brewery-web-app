@@ -2,21 +2,28 @@ import { useState } from 'react';
 import { SearchIcon, CloseIcon } from './Icons';
 import '../styles/BeersSearch.css';
 
-function BeersSearch() {
+function BeersSearch({ setQuery }) {
     const [showInput, setShowInput] = useState(false);
     const [searchByName, setSearchByName] = useState(true);
+    const [searchInput, setSearchInput] = useState('');
 
     function handleIconClick() {
         setShowInput(!showInput);
     }
 
-    function toggleSearchOption(byName) {
+    function toggleSearchOption(event, byName) {
+        event.preventDefault();
         setSearchByName(byName);
     }
 
     function handleSearch(event) {
         event.preventDefault();
-        console.log("Now searching!");
+        const query = {
+            byName: searchByName,
+            searchString: searchInput,
+        }
+        console.log("Now searching!", query);
+        setQuery(query);
     }
 
     return (
@@ -35,17 +42,23 @@ function BeersSearch() {
                     onSubmit={event => handleSearch(event)}
                 >
                     <label htmlFor='search_input'>{`Search by ${searchByName ? 'beer name' : 'food pairing'}`}</label>
-                    <input id='search_input' type='text' className='search__input'></input>
+                    <input
+                        className='search__input'
+                        id='search_input'
+                        type='text'
+                        onChange={event => setSearchInput(event.target.value)}
+                    >
+                    </input>
                     <div className='search__options'>
                         <button
-                            onClick={() => toggleSearchOption(true)}
+                            onClick={event => toggleSearchOption(event, true)}
                             className={`option__button ${searchByName ? 'option__button-toggled' : 'option__button-not-toggled'}`}
                             title='Search by beer name'
                         >
                             Beer Name
                         </button>
                         <button
-                            onClick={() => toggleSearchOption(false)}
+                            onClick={event => toggleSearchOption(event, false)}
                             className={`option__button ${searchByName ? 'option__button-not-toggled' : 'option__button-toggled'}`}
                             title='Search by food pairing'
                         >
