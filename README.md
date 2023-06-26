@@ -18,7 +18,8 @@ Setting up the project locally is simple (bear in mind you will need [Nodejs](ht
 React was chosen for this project as it provides a simple yet powerful tooling to develop web applications.
 The project is structured around the App component, tasked with controlling the information fetched from the API and distributing it to its children components.
 
-From the App component, the BeersDisplay component received what beers need to be rendered and this one in turn controls how they will be rendered (Card Grid or Table View). This component also holds a modal for when a beer is selected to show its profile with more detailed information.
+From the App component, the BeersDisplay component receives what beers need to be rendered and this one in turn controls pagination. Paginated beers are then passed down to the BeersView component which controls how beers are displayed in either card or table views.
+This component also holds a modal for when a beer is selected to show its profile with more detailed information.
 
 Next to the BeersDisplay component is the BeersSearch component, which exposes a form to the user so that searches for beer name or food pairings may be made. The choice made here is lifted up to the App component to handle the new state of beers fetched from the API based on these queries.
 
@@ -36,9 +37,12 @@ To reduce request volume, 30 beers are requested on each API call and these are 
 ---
 
 ### Pending bonus features approaches
+
+To implement the two pending bonuses I would consider introducing a state management solution such as Redux before moving forward as both will require more states and prop drilling than there currently is. 
+
 **Select properties to display in card** is a feature I would approach by having the BeersGrid parent component hold a form where the user selects which properties they want to display in the card. This is stored in a state as an options object that is passed down to the BeerCard component to conditionally render the properties as specified by the user.
 
-**Bookmarks and favorites filter** could be implementing by having each card and/or profile hold a bookmark button to identify favorites. I would store these favorites as an array of beer IDs in localStorage and use it to filter the API response array. This would be achieved by filtering the beers array to only keep those IDs that are contained within the user's favorite array. 
+**Bookmarks and favorites filter** could be implemented by having each card and/or profile hold a bookmark button to identify favorites. I would store these favorites as an array of beer IDs in localStorage and use it to filter the API response array. This would be achieved by filtering the beers array to only keep those IDs that are contained within the user's favorite array. 
 
 A filter button can be placed in the BeersDisplay so that displayed beers are only those contained in the array. The drawback here is that there could be none or very few beers left, depending on number of bookmarks and amount of beers already fetched.
 
