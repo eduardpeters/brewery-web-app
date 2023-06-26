@@ -38,8 +38,7 @@
 
 @media screen and (min-width: 767px) {
     .profile__dialog {
-        max-height: 50%;
-        top: 25%;
+        top: 15%;
     }
 }
 
