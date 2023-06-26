@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { SearchIcon, CloseIcon } from './Icons';
 import '../styles/BeersSearch.css';
 
-function BeersSearch({ setQuery }) {
+function BeersSearch({ query, setQuery }) {
     const [showInput, setShowInput] = useState(false);
     const [searchByName, setSearchByName] = useState(true);
     const [searchInput, setSearchInput] = useState('');
@@ -36,6 +36,15 @@ function BeersSearch({ setQuery }) {
                 <span className='search__icon-text'>Search beers</span>
                 {showInput ? <CloseIcon /> : <SearchIcon />}
             </button>
+            {query.searchString.length !== 0 &&
+                <button
+                    className='search__clear'
+                    onClick={() => setQuery({ ...query, searchString: '' })}
+                    title='Clear search results'
+                >
+                    Clear search
+                </button>
+            }
             {showInput &&
                 <form
                     className='search__form'

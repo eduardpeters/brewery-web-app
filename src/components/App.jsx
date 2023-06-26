@@ -48,19 +48,10 @@ function App() {
             <div className='app__topbar'>
                 <h1 className='app__title'>Brewdog Brewery</h1>
                 <div className='buttons__container'>
-                    <BeersSearch setQuery={setQuery} />
+                    <BeersSearch query={query} setQuery={setQuery} />
                 </div>
             </div>
             <h2 className='app__subtitle'>Our beer selection &#127866;</h2>
-            {query.searchString.length !== 0 &&
-                <button
-                    className='app__clear'
-                    onClick={() => setQuery({ ...query, searchString: '' })}
-                    title='Clear search results'
-                >
-                    Clear search
-                </button>
-            }
             {
                 beers.length !== 0
                     ?
