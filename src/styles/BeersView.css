@@ -1,0 +1,19 @@
+.view__switcher {
+    align-items: center;
+    background-color: #2EC4B6;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 0.9rem;
+    margin: 5px;
+    padding: 5px;
+}
+
+.view__switcher:hover {
+    opacity: 0.8;
+}
+
+.view__switcher-text {
+    margin: 0 5px;
+}
