@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import BeerProfile from './BeerProfile';
-import BeersGrid from './BeersGrid';
 import '../styles/BeersDisplay.css';
+import BeersView from './BeersView';
 
 const DISPLAY_PAGE_SIZE = 10;
 
@@ -13,7 +13,7 @@ function BeersDisplay({ beers, getNextBeers, query }) {
 
     useEffect(() => {
         setCurrentPage(1);
-    },[query]);
+    }, [query]);
 
     useEffect(() => {
         const slice = beers.slice(DISPLAY_PAGE_SIZE * (currentPage - 1), DISPLAY_PAGE_SIZE * currentPage);
@@ -49,9 +49,7 @@ function BeersDisplay({ beers, getNextBeers, query }) {
                     dialogElement={profileDialogRef.current}
                 />
             </dialog>
-            <div className='beers_display__container'>
-                <BeersGrid beers={pageBeers} setSelection={setSelection} />
-            </div>
+            <BeersView beers={pageBeers} setSelection={setSelection} />
             <div className='beers_display__pages'>
                 {
                     currentPage > 1 &&
