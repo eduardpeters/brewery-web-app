@@ -1,10 +1,8 @@
-import useWindowSize from '../hooks/useWindowSize';
 import '../styles/BeerEntry.css';
 
-const SCREEN_BREAK_POINT = 768;
+import { SCREEN_BREAK_POINT } from '../constants/constants';
 
-function BeerEntry({ beer, setSelection }) {
-    const screenSize = useWindowSize();
+function BeerEntry({ beer, setSelection, screenSize }) {
 
     return (
         <button
@@ -13,11 +11,13 @@ function BeerEntry({ beer, setSelection }) {
             title={`Show ${beer.name}`}
         >
             <h3 className='beer_entry__name'>{beer.name}</h3>
-            <img
-                className='beer_entry__image'
-                src={beer.image_url}
-                alt={`A ${beer.name} beer`}
-            />
+            <div className='entry_image__container'>
+                <img
+                    className='beer_entry__image'
+                    src={beer.image_url}
+                    alt={`A ${beer.name} beer`}
+                />
+            </div>
             <p className='beer_entry__tagline'>{beer.tagline}</p>
             {
                 screenSize.width >= SCREEN_BREAK_POINT &&

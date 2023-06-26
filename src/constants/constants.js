@@ -1,0 +1,1 @@
+export const SCREEN_BREAK_POINT = 768;

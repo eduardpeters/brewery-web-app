@@ -16,6 +16,10 @@
     height: 100px;
 }
 
+.beer_entry__more {
+    text-align: center;
+}
+
 .beer_entry__name {
     font-size: 1.5rem;
     text-align: center;
@@ -25,6 +29,12 @@
 
 .beer_entry__tagline {
     font-style: italic;
+    text-align: center;
+    width: 30%;
+}
+
+.entry_image__container {
+    text-align: center;
     width: 30%;
 }
 
@@ -33,8 +43,7 @@
         min-height: 300px;
     }
     
-    .beer_entry__name, .beer_entry__tagline, .beer_entry__more {
-        text-align: center;
+    .beer_entry__name, .beer_entry__tagline, .beer_entry__more, .entry_image__container {
         width: 15%;
     }
 }
