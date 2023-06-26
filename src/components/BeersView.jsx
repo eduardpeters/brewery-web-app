@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BeersGrid from "./BeersGrid";
+import BeersTable from "./BeersTable";
 import { GridIcon, TableIcon } from "./Icons";
 import '../styles/BeersView.css';
 
@@ -23,7 +24,7 @@ function BeersView({ beers, setSelection }) {
                     ?
                     <BeersGrid beers={beers} setSelection={setSelection} />
                     :
-                    <div>Show table view</div>
+                    <BeersTable beers={beers} setSelection={setSelection} />
             }
         </>
     );

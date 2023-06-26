@@ -1,7 +1,7 @@
 import BeerCard from './BeerCard';
 import '../styles/BeersGrid.css';
 
-function BeersGrid( { beers, setSelection }) {
+function BeersGrid({ beers, setSelection }) {
 
     return (
         <div className='beers_grid__container'>
