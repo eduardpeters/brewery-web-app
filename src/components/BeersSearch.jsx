@@ -28,23 +28,25 @@ function BeersSearch({ query, setQuery }) {
 
     return (
         <div className='search__container'>
-            <button
-                className='search__icon'
-                onClick={handleIconClick}
-                title={`${showInput ? 'Hide' : 'Show'} search box`}
-            >
-                <span className='search__icon-text'>Search beers</span>
-                {showInput ? <CloseIcon /> : <SearchIcon />}
-            </button>
-            {query.searchString.length !== 0 &&
+            <div className='search__top_container'>
                 <button
-                    className='search__clear'
-                    onClick={() => setQuery({ ...query, searchString: '' })}
-                    title='Clear search results'
+                    className='search__icon'
+                    onClick={handleIconClick}
+                    title={`${showInput ? 'Hide' : 'Show'} search box`}
                 >
-                    Clear search
+                    <span className='search__icon-text'>Search beers</span>
+                    {showInput ? <CloseIcon /> : <SearchIcon />}
                 </button>
-            }
+                {query.searchString.length !== 0 &&
+                    <button
+                        className='search__clear'
+                        onClick={() => setQuery({ ...query, searchString: '' })}
+                        title='Clear search results'
+                    >
+                        Clear search
+                    </button>
+                }
+            </div>
             {showInput &&
                 <form
                     className='search__form'
