@@ -11,12 +11,6 @@
     width: 90%;
 }
 
-@media screen and (min-width: 767px) {
-    .beer_card__container {
-        min-height: 300px;
-    }
-}
-
 .beer_entry__image {
     aspect-ratio: auto;
     height: 100px;
@@ -32,4 +26,15 @@
 .beer_entry__tagline {
     font-style: italic;
     width: 30%;
+}
+
+@media screen and (min-width: 767px) {
+    .beer_card__container {
+        min-height: 300px;
+    }
+    
+    .beer_entry__name, .beer_entry__tagline, .beer_entry__more {
+        text-align: center;
+        width: 15%;
+    }
 }
